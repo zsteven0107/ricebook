@@ -1,0 +1,87 @@
+img{
+  height:150px;
+  width:150px;
+}
+
+body{
+  background: LemonChiffon;
+}
+
+#uInfo{
+  background: Orange;
+}
+
+#fInfo{
+  background: SandyBrown;
+}
+
+#aPost{
+  background: Pink;
+}
+
+#modText{
+  margin-left: 200px;
+  width:400px;
+  height:100px;
+}
+
+#modC1{
+  margin-left: 200px;
+  width:400px;
+  height:100px;
+}
+
+#modC2{
+  margin-left: 200px;
+  width:400px;
+  height:100px;
+}
+
+#modC3{
+  margin-left: 200px;
+  width:400px;
+  height:100px;
+}
+
+#cButton1{
+  position: absolute;
+  left: 600px;
+}
+
+#cButton2{
+  position: absolute;
+  left: 600px;
+}
+
+#cButton3{
+  position: absolute;
+  left: 600px;
+}
+
+#cSave1{
+  position: absolute;
+  left: 700px;
+}
+
+#cSave2{
+  position: absolute;
+  left: 700px;
+}
+
+#cSave3{
+  position: absolute;
+  left: 700px;
+}
+
+#mark{
+  color: red;
+  font-style:italic;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th{
+  text-align: center;
+  background: LightSteelBlue;
+  font-family: Georgia;
+}

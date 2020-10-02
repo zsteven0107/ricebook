@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Main Page</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework4">
+  <meta name="author" content="Su Zhang-sz61(netId)-zsteven0107(githubId)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+  <!-- <script type="text/javascript" src="landing.component.ts"></script> -->
+</head>
+
+<body ng-app="">
+  <h4 class="jumbotron text-center">Main Page</h4>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 text-center">
+
+        <div id="uInfo" class="thumbnail">
+          <button class="btn btn-primary" (click)="toLanding()">Logout</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-primary" (click)="toProfile()">Profile</button>
+          <br><br><img src={{userPhoto}}/><br>
+          <p id="profileName">{{userName}}</p>
+          <p>{{userStatus}}</p>
+          <input type="text" id="nStatus" placeholder="New Status" style="width:50%">&nbsp;&nbsp;
+          <button (click)="uStatus()" class="btn btn-info" type="submit">Update</button>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div id="aPost" class="thumbnail">
+          <input type="file" (change)="fNameChange($event)" name="postImage" accept="image/png, image/jpeg"><br>
+          <input class="input-lg" type="text" placeholder="Your Post here" [(ngModel)]="articling" id="postInput"><br><br>
+          <button (click)="clearArticle()" class="btn btn-light" type="button" >Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button (click)="postArticle()" class="btn btn-light" type="button">Post</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <br>
+        <input class="input-medium search-query" style="width:120%" type="text" id="searchInput" placeholder="Search here from text" name="searchInput" [(ngModel)]="searchInput" #searchInputRef="ngModel"><br><br>
+        <button (click)="search()" class="btn" type="submit">Search</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 text-center">
+        <div id="fInfo" class="thumbnail" *ngFor="let us of follower">
+          <br><img src={{us.avatar}}/>
+          <p>{{us.username}}</p>
+          <p>{{us.headline}}</p>
+          <button (click)="unfollow(us.username)" class="btn btn-light" type="button">Unfollow</button><br>
+        </div>
+        <input type="text" placeholder="same follower will delete after refresh" style="width:100%" id="addFollower" name="addname" [(ngModel)]="addname" #addnameRef="ngModel">&nbsp;&nbsp;&nbsp;&nbsp;
+        <br><button (click)="follow()" class="btn btn-info" type="submit">Add</button>
+      </div>
+      <div class="col-sm-9 text-center">
+        <div class="thumbnail" *ngFor="let po of currentpost">
+          <p>{{po.author}}</p>
+          <p>{{po.id}}</p>
+          <p>{{po.text}}</p>
+          <p>{{date}}</p>
+          <img src={{po.image}}>
+          <button (click)="edit(po.author)" class="btn btn-info" type="submit">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button (click)="save(po.id)" class="btn btn-info" type="submit">Save</button><br><br>
+          <p id='mark'>(input box will be at the bottom)</p>
+          <table id="comment_table" style="width:100%">
+            <tr>
+              <th>User</th>
+              <th>Comment</th>
+            </tr>
+            <tr>
+              <td>user1</td>
+              <td id='c1' style="text-align:left">{{po.comment[0]}}
+                <button (click)="c1tEdit()" id="cButton1" type="submit">Comment</button>
+                <button (click)="c1Save(po.id)" id="cSave1" type="submit">Comment Save</button>
+              </td>
+            </tr>
+            <tr>
+              <td>user2</td>
+              <td id='c2' style="text-align:left">{{po.comment[1]}}
+                <button (click)="c2tEdit()" id="cButton2" type="submit">Comment</button>
+                <button (click)="c2Save(po.id)" id="cSave2" type="submit">Comment Save</button>
+              </td>
+            </tr>
+            <tr>
+              <td>user3</td>
+              <td id='c3' style="text-align:left">{{po.comment[2]}}
+                <button (click)="c3tEdit()" id="cButton3" type="submit">Comment</button>
+                <button (click)="c3Save(po.id)" id="cSave3" type="submit">Comment Save</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <input type='text' id='modText' style="display:none"><br>
+        <input type='text' id='modC1' style="display:none"><br>
+        <input type='text' id='modC2' style="display:none"><br>
+        <input type='text' id='modC3' style="display:none"><br>
+    </div>
+  </div>
+</div>
+</body>
+</html>

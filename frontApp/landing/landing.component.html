@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Landing Page</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework7">
+  <meta name="author" content="Su Zhang-sz61(netId)-zsteven0107(githubId)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+  <!-- <script type="text/javascript" src="landing.component.ts"></script> -->
+
+</head>
+<body ng-app="myApp">
+
+  <div class="jumbotron text-center">
+    <h2>Welcome to social networking!</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 text-center">
+        <form>
+          <h2>Registration</h2><br>
+          <label for="uName">Username:</label>
+          <input type="text"
+          class="form-control"
+          name="username"
+          placeholder="Input your username"
+          id="rName"/>
+          <br><label for="pWord">Password:</label>
+          <input type="password"
+          class="form-control"
+          name = "password"
+          placeholder="Input your password"
+          id="rPass"/>
+          <br><label for="email">Email:</label>
+          <input type="email"
+          class="form-control"
+          name = "email"
+          placeholder="Input your email"
+          id = "rEmail"/>
+          <br><label for="zCode">Zipcode:</label>
+          <input type="zipcode"
+          class="form-control"
+          name = "zipcode"
+          placeholder="Input your zipcode"
+          id = "rZipcode"/>
+          <br><label for="pWord">Date of Birth(YYYY-MM-DD):</label>
+          <input type="dob"
+          class="form-control"
+          name = "dob"
+          placeholder="Input your date of birth"
+          id = "rDob"/>
+          <br><button class="btn btn-primary" (click)="rToMain()">Register</button>
+        </form>
+      </div>
+      <div class="col-sm-4 text-center"></div>
+      <div class="col-sm-4 text-center">
+        <form>
+          <h2>Login</h2><br>
+          <label for="uName">Username:</label>
+          <input type="text"
+          class="form-control"
+          name="lusername"
+          placeholder="Input your username"
+          id="lName"
+          [(ngModel)]="lusername" #lusernameRef="ngModel">
+          <br><label for="pWord">Password:</label>
+          <input type="password"
+          class="form-control"
+          name = "lpassword"
+          placeholder="Input your password"
+          id="lPass"
+          [(ngModel)]="lpassword" #lpasswordRef="ngModel">
+          <br><button class="btn btn-primary" (click)="lToMain()">Login</button>
+        </form><br><br>
+        <a href="http://localhost:3000/auth/facebook">Facebook Login</a>
+        <!-- <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

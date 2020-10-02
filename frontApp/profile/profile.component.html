@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile Page</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework4">
+  <meta name="author" content="Su Zhang-sz61(netId)-zsteven0107(githubId)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+  <!-- <script type="text/javascript" src="landing.component.ts"></script> -->
+
+</head>
+<body ng-app="">
+  <h4 class="jumbotron text-center">Profile Page<br><br>
+  <button class="btn btn-primary" (click)="toMain()">Main Page</button></h4>
+  <div class="container">
+    <div class="row">
+      <div id="left" class="col-sm-5 text-center">
+        <br><img src={{picUrl}} /><br>
+        <br><input id="chooseImg" type="file" (change)="fNameChange($event)" accept="image/png, image/jpeg">
+        <br><button (click)="uploadImage()" id="uploadImg" type="submit">Upload</button>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <div id="cForm" class="thumbnail">
+        <h3>Current Info</h3>
+        <br><p>{{nameMsg}}</p>
+        <p>{{dobMsg}}</p>
+        <p>{{emailMsg}}</p>
+        <p>{{zipMsg}}</p>
+        <p>{{passMsg}}</p>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <div id="uForm" class="thumbnail">
+        <h3>Upload Info</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="can not change name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button (click)="showMsg()" type="submit" class="btn btn-primary">Upload Info</button>
+        </form>
+       </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
